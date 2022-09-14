@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Bagerich';
+  src: url(../fonts/Bagerich.woff);
+}
+
+@font-face {
+  font-family: 'Roslindale';
+  src: url(../fonts/RoslindaleDisplayCondensed-Regular.woff2);
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url(../fonts/NeueMontreal-Regular.woff2);
+}
+
+@font-face {
+  font-family: 'Agrandir';
+  src: url(../fonts/Agrandir-Regular.woff2);
+}
+
+h1 {
+  font-family: 'Bagerich', serif;
+}
+
+h2 {
+  font-family: 'Roslindale', serif;
+}
+
+h3 {
+  font-family: 'NeueMontreal', sans-serif;
+}
+
+h4 {
+  font-family: 'Agrandir', sans-serif;
+}
