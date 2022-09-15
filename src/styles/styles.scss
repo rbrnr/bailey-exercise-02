@@ -1,2 +1,60 @@
 @import 'normalize';
 @import 'fonts';
+
+.intro {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 6em;
+    padding-right: 6em;
+    padding-top: 7em;
+}
+
+.grid {
+    padding-top: 3em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    z-index: -1;
+  }
+
+.hover {
+    display: none;
+}
+
+.cell {
+    position: relative;
+    transition: transform .2s;
+}
+
+.cell:hover {
+    transform: scale(1.25);
+    z-index: 1;
+}
+
+.single {
+    padding-left: 6em;
+    padding-right: 6em;
+    display: flex;
+}
+
+.image {
+    padding-top: 3em;
+}
+
+.text {
+    text-align: center;
+}
+
+h1 {
+    font-size: 10.02em;
+}
+
+h2 {
+    font-size: 3.3em;
+}
+
+h3 {
+    font-size: 0.8em;
+    letter-spacing: 0.6em;
+    margin-top: 3em;
+    text-transform: uppercase;
+}
