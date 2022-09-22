@@ -100,6 +100,7 @@ h3 {
     padding-right: 6em;
     padding-bottom: 3em;
     display: flex;
+    position: relative;
     gap: 3em;
     .text {
         position: sticky;
@@ -115,8 +116,6 @@ h3 {
     .text {
         padding-left: 7em;
         padding-right: 3em;
-        position: sticky;
-        top: 3em;
     }
 }
 
@@ -124,8 +123,6 @@ h3 {
     .text {
         padding-right: 7em;
         padding-left: 3em;
-        position: sticky;
-        top: 3em;
     }
 }
 
