@@ -17,7 +17,7 @@ import { Value } from 'sass';
         if (entry.isIntersecting) {
           scrollToTopBtn.classList.add("showScrollButton");
         } else {
-          scrollToTopBtn.classList.remove("showScrollButton");
+          scrollToTopBtn.classList.remove("showScrollButton");  
         }
       });
     }
@@ -29,19 +29,21 @@ import { Value } from 'sass';
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           console.log('entry');
-          // modify(entry.target);
-        } else {
-          // revert(entry.target);
+          modify(entry.target);
         }
       })
     }, {
-      threshold: 0.8
+      threshold: [.6,.8]
     })
     
 
     function modify(el) {
+      if (el.id === "grid") {
+        document.body.style.backgroundColor = '#e0e0e0';   
+        document.body.style.transition = '1s';    
+      }
       if (el.id === "snorlax") {
-          document.body.style.backgroundColor = '#FFFDF6';   
+          document.body.style.backgroundColor = 'grey';   
           document.body.style.transition = '1s';    
       }
       if (el.id === "squirtle") {
@@ -102,71 +104,8 @@ import { Value } from 'sass';
       }
     }
     
-    // function revert(el) {
-    //   if (el.id === "snorlax") {
-    //     el.style.backgroundColor = '#FFFDF6';
-    //     document.body.style.transition = '1s';  
-    //   }
-    //   if (el.id === "squirtle") {
-    //     el.style.backgroundColor = '#87DDFF';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "jigglypuff") {
-    //     document.body.style.backgroundColor = '#9467D3';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "rowlet") {
-    //     document.body.style.backgroundColor = 'green';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "munchlax") {
-    //     document.body.style.backgroundColor = 'white';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "grookey") {
-    //     document.body.style.backgroundColor = 'green';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "snom") {
-    //     document.body.style.backgroundColor = 'blue';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "wobbuffet") {
-    //     document.body.style.backgroundColor = 'purple';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "chansey") {
-    //     document.body.style.backgroundColor = 'grey';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "clobbopus") {
-    //     document.body.style.backgroundColor = 'orange';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "lapras") {
-    //     document.body.style.backgroundColor = 'blue';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "cubone") {
-    //     document.body.style.backgroundColor = 'orange';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "mightyena") {
-    //     document.body.style.backgroundColor = 'white';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "pikachu") {
-    //     document.body.style.backgroundColor = 'yellow';
-    //     document.body.style.transition = '1s';
-    //   }
-    //   if (el.id === "arcanine") {
-    //     document.body.style.backgroundColor = 'red';
-    //     document.body.style.transition = '1s';
-    //   }
-    // }
-    
     io.observe(document.querySelector('body'));
-    io.observe(document.querySelector('#intro'));
+    io.observe(document.querySelector('#grid'));
     io.observe(document.querySelector('#collection'));
     io.observe(document.querySelector('#snorlax'));
     io.observe(document.querySelector('#squirtle'));
@@ -196,5 +135,12 @@ import { Value } from 'sass';
       gsap.to(document.querySelector(".collection"), { opacity: 1, duration: 2 });
       gsap.to(document.querySelector(".grid"), { opacity: 1, delay: 2.5 });
     });
+
+    scrollToTopBtn.addEventListener("click", changeBgColor);
+
+    function changeBgColor() {
+      document.body.style.backgroundColor = '#e0e0e0';
+      document.body.style.transition = '0s';
+    }
   }
 })();
