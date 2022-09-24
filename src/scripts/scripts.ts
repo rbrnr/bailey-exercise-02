@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import imagesLoaded from 'imagesloaded';
+import { Value } from 'sass';
 
 (() => {
   window.onload = function() {
@@ -27,26 +28,28 @@ import imagesLoaded from 'imagesloaded';
     let io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          modify(entry.target);
+          console.log('entry');
+          // modify(entry.target);
         } else {
-          revert(entry.target);
+          // revert(entry.target);
         }
       })
     }, {
       threshold: 0.8
     })
     
+
     function modify(el) {
       if (el.id === "snorlax") {
-          document.body.style.backgroundColor = 'grey';   
+          document.body.style.backgroundColor = '#FFFDF6';   
           document.body.style.transition = '1s';    
       }
       if (el.id === "squirtle") {
-        document.body.style.backgroundColor = 'blue';
+        document.body.style.backgroundColor = '#87DDFF';
         document.body.style.transition = '1s';
       }
       if (el.id === "jigglypuff") {
-        document.body.style.backgroundColor = 'purple';
+        document.body.style.backgroundColor = '#9467D3';
         document.body.style.transition = '1s';
       }
       if (el.id === "rowlet") {
@@ -99,18 +102,72 @@ import imagesLoaded from 'imagesloaded';
       }
     }
     
-    function revert(el) {
-      if (el.id === "snorlax") {
-        el.style.backgroundColor = 'initial';
-        document.body.style.transition = '1s';  
-      }
-      if (el.id === "squirtle") {
-        el.style.backgroundColor = 'initial';
-        document.body.style.transition = '1s';
-      }
-    }
+    // function revert(el) {
+    //   if (el.id === "snorlax") {
+    //     el.style.backgroundColor = '#FFFDF6';
+    //     document.body.style.transition = '1s';  
+    //   }
+    //   if (el.id === "squirtle") {
+    //     el.style.backgroundColor = '#87DDFF';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "jigglypuff") {
+    //     document.body.style.backgroundColor = '#9467D3';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "rowlet") {
+    //     document.body.style.backgroundColor = 'green';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "munchlax") {
+    //     document.body.style.backgroundColor = 'white';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "grookey") {
+    //     document.body.style.backgroundColor = 'green';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "snom") {
+    //     document.body.style.backgroundColor = 'blue';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "wobbuffet") {
+    //     document.body.style.backgroundColor = 'purple';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "chansey") {
+    //     document.body.style.backgroundColor = 'grey';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "clobbopus") {
+    //     document.body.style.backgroundColor = 'orange';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "lapras") {
+    //     document.body.style.backgroundColor = 'blue';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "cubone") {
+    //     document.body.style.backgroundColor = 'orange';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "mightyena") {
+    //     document.body.style.backgroundColor = 'white';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "pikachu") {
+    //     document.body.style.backgroundColor = 'yellow';
+    //     document.body.style.transition = '1s';
+    //   }
+    //   if (el.id === "arcanine") {
+    //     document.body.style.backgroundColor = 'red';
+    //     document.body.style.transition = '1s';
+    //   }
+    // }
     
     io.observe(document.querySelector('body'));
+    io.observe(document.querySelector('#intro'));
+    io.observe(document.querySelector('#collection'));
     io.observe(document.querySelector('#snorlax'));
     io.observe(document.querySelector('#squirtle'));
     io.observe(document.querySelector('#jigglypuff'));
