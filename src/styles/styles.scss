@@ -42,19 +42,23 @@ h3 {
     z-index: -1;
   }
 
-.hover {
-    display: none;
-}
-
-.cell {
+.main-box {
     position: relative;
     display: flex;
     transition: transform .2s;
 }
 
-.thumbnail {
-    position: absolute;
-    display: flex;
+.hover {
+    display: none;
+    margin: 30px;
+    color: white;
+    padding-top: 50%;
+    h4 {
+        font-size: 2em;
+    }
+    span {
+        font-size: 1.5em;
+    }
 }
 
 .cell:hover {
@@ -65,13 +69,12 @@ h3 {
         z-index: 2;
         display: block;
         border-radius: 11px;
-        height: 99%;
+        height: 100%;
         width: 100%;
         background-color: rgba(0,0,0,0.6);
         position: absolute;
         color: white;
         text-align: center;
-        // vertical-align: middle;
         margin: auto;
     }
 }
