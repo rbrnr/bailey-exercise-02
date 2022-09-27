@@ -1,16 +1,15 @@
 <!doctype html>
 <head>
   <title>Exercise 2</title>
-  <script src="./assets/js/scripts.js"></script>
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
 
   <div class="intro" id="intro">
     <div class="text">
-      <h1><span class="titles">The</span><span class="titles"> Gossifleur</span></h1>
-      <h2><span class="titles">Encyclopaedia </span><span class="titles">Pokemonica </span><span class="titles">Digital</span></h2>
-      <h3 class="tiny-title"><span class="titles">Discover </span><span class="titles">the </span><span class="titles">cards</span></h3>
+      <h1 id="h1"><span class="titles">The</span><span class="titles"> Gossifleur</span></h1>
+      <h2 id="h2"><span class="titles">Encyclopaedia </span><span class="titles">Pokemonica </span><span class="titles">Digital</span></h2>
+      <h3 id="h3" class="tiny-title"><span class="titles">Discover </span><span class="titles">the </span><span class="titles">cards</span></h3>
     </div>
     <div class="grid" id="grid">
       <div class="cell">
@@ -152,8 +151,8 @@
   </div>
 
   <div class="collection" id="collection">
-    <div id="snorlax" class="single">
-      <div class="image" height="700px">
+    <div id="snorlax" class="single" data-color="#2f80c3">
+      <div class="image">
         <img src="assets/images/snorlax.png" alt="Snorlax SR CRE #224" width="100%"/>
       </div>
       <div class="text" id="snorlax-text">
@@ -161,7 +160,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="squirtle" class="single">
+    <div id="squirtle" class="single" data-color="#39bfda">
       <div class="image">
         <img src="assets/images/squirtle.png" alt="Squirtle SSP #233" width="100%"/>
       </div>
@@ -170,7 +169,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="jigglypuff" class="single">
+    <div id="jigglypuff" class="single" data-color="#f1b5d1">
       <div class="image">
         <img src="assets/images/jigglypuff.png" alt="Jigglypuff FST #110" width="100%"/>
       </div>
@@ -179,7 +178,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="rowlet" class="single">
+    <div id="rowlet" class="single" data-color="#6bc2ab">
       <div class="image">
         <img src="assets/images/rowlet.png" alt="Rowlet SHF #SV1" width="100%"/>
       </div>
@@ -188,7 +187,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="munchlax" class="single">
+    <div id="munchlax" class="single" data-color="#ecd2a9">
       <div class="image">
         <img src="assets/images/munchlax.png" alt="Munchlax UNM #173" width="100%"/>
       </div>
@@ -197,7 +196,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="grookey" class="single">
+    <div id="grookey" class="single" data-color="#e1e486">
       <div class="image">
         <img src="assets/images/grookey.png" alt="Grookey SHF #SV4" width="100%"/>
       </div>
@@ -206,7 +205,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="snom" class="single">
+    <div id="snom" class="single" data-color="#c8e7ef">
       <div class="image">
         <img src="assets/images/snom.png" alt="Snom SHF #SV33" width="100%"/>
       </div>
@@ -215,7 +214,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="wobbuffet" class="single">
+    <div id="wobbuffet" class="single" data-color="#0095c0">
       <div class="image">
         <img src="assets/images/wobbuffet.png" alt="Wobbuffet UR SSH #191" width="100%"/>
       </div>
@@ -224,7 +223,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="chansey" class="single">
+    <div id="chansey" class="single" data-color="#f7b2d1">
       <div class="image">
         <img src="assets/images/chansey.png" alt="Chansey PGO #51" width="100%"/>
       </div>
@@ -233,7 +232,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="clobbopus" class="single">
+    <div id="clobbopus" class="single" data-color="#98aecf">
       <div class="image">
         <img src="assets/images/clobbopus.png" alt="Clobbopus SHF #SV72" width="100%"/>
       </div>
@@ -242,7 +241,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="lapras" class="single">
+    <div id="lapras" class="single" data-color="#9c95bf">
       <div class="image">
         <img src="assets/images/lapras.png" alt="Lapras SHF #SV110" width="100%"/>
       </div>
@@ -251,7 +250,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="cubone" class="single">
+    <div id="cubone" class="single" data-color="#e9a448">
       <div class="image">
         <img src="assets/images/cubone.png" alt="Cubone BST #69" width="100%"/>
       </div>
@@ -260,7 +259,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="mightyena" class="single">
+    <div id="mightyena" class="single" data-color="#818fa6">
       <div class="image">
         <img src="assets/images/mightyena.png" alt="Mightyena ASR #TG9" width="100%"/>
       </div>
@@ -269,7 +268,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="pikachu" class="single">
+    <div id="pikachu" class="single" data-color="#f3da73">
       <div class="image">
         <img src="assets/images/pikachu.png" alt="Pikachu LOR #TG16" width="100%"/>
       </div>
@@ -278,7 +277,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim felis, varius vitae varius non, ultricies in elit. Cras eu placerat quam, non lobortis libero. Duis et volutpat augue. Vestibulum dictum suscipit porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam et placerat ante, in bibendum sem. Vivamus lacus nisi, laoreet a purus ut, ullamcorper tempor diam.</p>
       </div>
     </div>
-    <div id="arcanine" class="single">
+    <div id="arcanine" class="single" data-color="#ee9138">
       <div class="image">
         <img src="assets/images/arcanine.png" alt="Arcanine FST #33" width="100%"/>
       </div>
@@ -289,7 +288,10 @@
     </div>
   </div>
   <a href="#intro" class="scroll-to-top">
-    <img class="arrow" src="/assets/images/arrow.svg" alt="^" width="30px">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M17.4466 11.5017L19.4481 10.5514L17.4745 9.49423C15.153 8.25076 13.5659 7.1079 12.2531 5.71408C10.9421 4.32214 9.86712 2.64033 8.60343 0.246459L7.3656 1.5107C8.67127 3.98411 9.84624 5.84591 11.3213 7.41205C12.0098 8.143 12.7555 8.8009 13.5987 9.42518L0.30615 9.42518L0.30615 11.5613L13.453 11.5613C12.8588 12.0175 12.2984 12.5189 11.7541 13.0866C10.2703 14.6341 8.94296 16.6359 7.37731 19.4495L8.59172 20.757C10.1216 18.0077 11.3511 16.1768 12.6754 14.7956C13.9934 13.421 15.4423 12.4534 17.4466 11.5017Z" fill="white"/>
+    </svg>
   </a>
+  <script src="./assets/js/scripts.js"></script>
 </body>
 </html>

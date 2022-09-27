@@ -1,173 +1,110 @@
 import { gsap } from 'gsap';
+import { SplitText } from 'gsap/all';
 import imagesLoaded from 'imagesloaded';
-import { Value } from 'sass';
+
+gsap.registerPlugin(SplitText);
+
+function initIntro() {
+  gsap.set('#h1', { opacity: 0 });
+  gsap.set('#h2', { opacity: 0 });
+  gsap.set('#h3', { opacity: 0 });
+  gsap.set('.grid', { opacity: 0 });
+}
+
+function goIntro() {
+  const h1 = new SplitText('#h1', { type: 'words,chars' });
+  const h2 = new SplitText('#h2', { type: 'words,chars' });
+  const h3 = new SplitText('#h3', { type: 'words,chars' });
+  
+  const introTL = gsap.timeline();
+  introTL.set(h1.chars, { opacity: 0, y: 20 });
+  introTL.set(h2.chars, { opacity: 0, y: 20 });
+  introTL.set(h3.chars, { opacity: 0, y: 20 });
+  introTL.set(document.querySelectorAll('.grid .cell'), { opacity: 0, y: 20 });
+  introTL.set('#h1', { opacity: 1 });
+  introTL.set('#h2', { opacity: 1 });
+  introTL.set('#h3', { opacity: 1 });
+  introTL.set('.grid', { opacity: 1 });
+  introTL.to(h1.chars, { opacity: 1, y: 0, duration: 1, stagger: .015, ease: 'Power2.easeOut' }, .5);
+  introTL.to(h2.chars, { opacity: 1, y: 0, duration: 1, stagger: .015, ease: 'Power2.easeOut' }, '>-.7');
+  introTL.to(h3.chars, { opacity: 1, y: 0, duration: 1, stagger: .015, ease: 'Power2.easeOut' }, '>-.7');
+  introTL.to(document.querySelectorAll('.grid .cell'), { opacity: 1, y: 0, duration: 1, stagger: .035, ease: 'Power2.easeOut' }, '>-1');
+
+  introTL.play();
+};
 
 (() => {
-  window.onload = function() {
-    // write code inside of here. this is a self contained wrapper that runs on page load.
+  const splits = {};
+  let gridZIndex = 0;
 
-    // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+  let io = new IntersectionObserver((entries) => {
+    let intersecting = false;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        intersecting = true;
+        const target = (entry.target as HTMLElement);
+        gsap.to(document.body, { backgroundColor: target.dataset.color, duration: 1 });
 
-    const collection = document.querySelector('.collection');
-    const scrollToTopBtn = document.querySelector(".scroll-to-top");
-    const singles = document.querySelectorAll(".single");
-    // text animation for individual card sections on scroll
-    const scrollText = document.querySelector(".text-scroll");
-    
-    function callback(entries, observer) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          scrollToTopBtn.classList.add("showScrollButton");
-        } else {
-          scrollToTopBtn.classList.remove("showScrollButton");  
+        if (!target.classList.contains('inview')) {
+          if (splits.hasOwnProperty(target.id)) {
+            target.classList.add('inview');
+
+            const tl = gsap.timeline();
+            tl.to(splits[target.id].h2.chars, { opacity: 1, y: 0, duration: 1, stagger: .025, ease: 'Power2.easeOut' });
+            tl.to(splits[target.id].p.lines, { opacity: 1, y: 0, duration: 1, stagger: .025, ease: 'Power2.easeOut' }, '>-.9');
+          }
         }
-      });
-    }
-
-    let observer = new IntersectionObserver(callback);
-    observer.observe(collection);
-
-    let io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          console.log('entry');
-          modify(entry.target);
-        }
-      })
-    }, {
-      threshold: [.6,.8]
-    })
-    
-
-    function modify(el) {
-      // if(el.id == "text-scroll") {
-        
-      // }
-      if (el.id === "grid") {
-        document.body.style.backgroundColor = '#EEEEEE';   
-        document.body.style.transition = '1s'; 
-        document.body.style.color = "black";   
       }
-      if (el.id === "snorlax") {
-          document.body.style.backgroundColor = '#999999';   
-          document.body.style.transition = '1s';   
-          document.body.style.color = "#EEEEEE";
-          // scrollText.classList.add('showScrollText');
-      }
-      if (el.id === "squirtle") {
-        document.body.style.backgroundColor = '#CCCCCC';
-        document.body.style.transition = '1s';
-        document.body.style.color = "black";
-      }
-      if (el.id === "jigglypuff") {
-        document.body.style.backgroundColor = '#999999';
-        document.body.style.transition = '1s';
-        document.body.style.color = "#EEEEEE";
-      }
-      if (el.id === "rowlet") {
-        document.body.style.backgroundColor = '#CCCCCC';
-        document.body.style.transition = '1s';
-        document.body.style.color = "black";
-      }
-      if (el.id === "munchlax") {
-        document.body.style.backgroundColor = '#999999';
-        document.body.style.transition = '1s';
-        document.body.style.color = "#EEEEEE";
-      }
-      if (el.id === "grookey") {
-        document.body.style.backgroundColor = '#CCCCCC';
-        document.body.style.transition = '1s';
-        document.body.style.color = "black";
-      }
-      if (el.id === "snom") {
-        document.body.style.backgroundColor = '#999999';
-        document.body.style.transition = '1s';
-        document.body.style.color = "#EEEEEE";
-      }
-      if (el.id === "wobbuffet") {
-        document.body.style.backgroundColor = '#CCCCCC';
-        document.body.style.transition = '1s';
-        document.body.style.color = "black";
-      }
-      if (el.id === "chansey") {
-        document.body.style.backgroundColor = '#999999';
-        document.body.style.transition = '1s';
-        document.body.style.color = "#EEEEEE";
-      }
-      if (el.id === "clobbopus") {
-        document.body.style.backgroundColor = '#CCCCCC';
-        document.body.style.transition = '1s';
-        document.body.style.color = "black";
-      }
-      if (el.id === "lapras") {
-        document.body.style.backgroundColor = '#999999';
-        document.body.style.transition = '1s';
-        document.body.style.color = "#EEEEEE";
-      }
-      if (el.id === "cubone") {
-        document.body.style.backgroundColor = '#CCCCCC';
-        document.body.style.transition = '1s';
-        document.body.style.color = "black";
-      }
-      if (el.id === "mightyena") {
-        document.body.style.backgroundColor = '#999999';
-        document.body.style.transition = '1s';
-        document.body.style.color = "#EEEEEE";
-      }
-      if (el.id === "pikachu") {
-        document.body.style.backgroundColor = '#CCCCCC';
-        document.body.style.transition = '1s';
-        document.body.style.color = "black";
-      }
-      if (el.id === "arcanine") {
-        document.body.style.backgroundColor = '#999999';
-        document.body.style.transition = '1s';
-        document.body.style.color = "#EEEEEE";
-      }
-    }
-    
-    io.observe(document.querySelector('body'));
-    io.observe(document.querySelector('#grid'));
-    io.observe(document.querySelector('#collection'));
-
-    // individual card sections
-    io.observe(document.querySelector('#snorlax'));
-    io.observe(document.querySelector('#squirtle'));
-    io.observe(document.querySelector('#jigglypuff'));
-    io.observe(document.querySelector('#rowlet'));
-    io.observe(document.querySelector('#munchlax'));
-    io.observe(document.querySelector('#grookey'));
-    io.observe(document.querySelector('#snom'));
-    io.observe(document.querySelector('#wobbuffet'));
-    io.observe(document.querySelector('#chansey'));
-    io.observe(document.querySelector('#clobbopus'));
-    io.observe(document.querySelector('#lapras'));
-    io.observe(document.querySelector('#cubone'));
-    io.observe(document.querySelector('#mightyena'));
-    io.observe(document.querySelector('#pikachu'));
-    io.observe(document.querySelector('#arcanine'));
-    io.observe(document.querySelector('#text-scroll'));
-
-
-    gsap.set(document.querySelectorAll(".titles"), { opacity: 0 });
-    gsap.set(document.querySelector(".grid"), { opacity: 0 });
-    gsap.set(document.querySelector(".collection"), { opacity: 0 });
-
-
-    imagesLoaded(document.body, () => {
-    
-      const timeline = gsap.timeline();
-      timeline.to(document.querySelectorAll(".titles"), { opacity: 1, duration: 2, stagger: 0.3});
-      gsap.to(document.querySelector(".collection"), { opacity: 1, duration: 2 });
-      gsap.to(document.querySelector(".grid"), { opacity: 1, delay: 2.5 });
     });
-
-    scrollToTopBtn.addEventListener("click", changeBgColor);
-
-    function changeBgColor() {
-      document.body.style.backgroundColor = '#e0e0e0';
-      document.body.style.transition = '0s';
-      document.body.style.color = "black";
+    
+    if (!intersecting) {
+      gsap.to(document.body, { backgroundColor: '#fff', duration: 1 });
+      document.querySelector('.scroll-to-top').classList.remove('is-visible');
+    } else {
+      document.querySelector('.scroll-to-top').classList.add('is-visible');
     }
-  }
+  }, { threshold: .51 });
+
+  document.querySelectorAll('.grid .cell').forEach(cell => {
+    cell.querySelector('a').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scroll({
+        top: document.getElementById((e.currentTarget as HTMLAnchorElement).getAttribute('href').replace('#', '')).getBoundingClientRect().top, 
+        left: 0, 
+        behavior: 'smooth'
+      });
+    });
+    cell.addEventListener('mouseenter', (e) => {
+      gridZIndex += 1;
+      (e.currentTarget as HTMLElement).style.zIndex = gridZIndex.toString();
+    });
+  });
+
+  document.querySelectorAll('.single').forEach(single => {
+    io.observe(single);
+
+    splits[single.id] = {
+      h2: new SplitText(single.querySelector('h2'), { type: 'words,chars' }),
+      p: new SplitText(single.querySelector('p'), { type: 'lines,words' })
+    };
+
+    gsap.set(splits[single.id].h2.chars, { opacity: 0, y: 20 });
+    gsap.set(splits[single.id].p.lines, { opacity: 0, y: 15 });
+  });
+
+  document.querySelector('.scroll-to-top').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scroll({
+      top: 0,
+      left: 0, 
+      behavior: 'smooth'
+    });
+  });
+
+  initIntro();
+
+  imagesLoaded(document.body, () => {
+    goIntro();
+  });
+
 })();
