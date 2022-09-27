@@ -2,7 +2,7 @@
 @import 'fonts';
 
 body {
-    background-color: #e0e0e0;
+    background-color: #EEEEEE;
 }
 
 h1 {
@@ -81,6 +81,16 @@ h3 {
 
 
 // Lower half of site
+
+.text-scroll {
+    opacity: 0;
+}
+
+.showScrollText {
+    opacity: 1;
+    transform: translateY(100);
+    transition: 1s;
+  }
 
 .collection {
     padding-top: 7em;

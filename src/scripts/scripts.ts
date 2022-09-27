@@ -11,6 +11,8 @@ import { Value } from 'sass';
     const collection = document.querySelector('.collection');
     const scrollToTopBtn = document.querySelector(".scroll-to-top");
     const singles = document.querySelectorAll(".single");
+    // text animation for individual card sections on scroll
+    const scrollText = document.querySelector(".text-scroll");
     
     function callback(entries, observer) {
       entries.forEach((entry) => {
@@ -38,75 +40,97 @@ import { Value } from 'sass';
     
 
     function modify(el) {
+      // if(el.id == "text-scroll") {
+        
+      // }
       if (el.id === "grid") {
-        document.body.style.backgroundColor = '#e0e0e0';   
-        document.body.style.transition = '1s';    
+        document.body.style.backgroundColor = '#EEEEEE';   
+        document.body.style.transition = '1s'; 
+        document.body.style.color = "black";   
       }
       if (el.id === "snorlax") {
-          document.body.style.backgroundColor = 'grey';   
-          document.body.style.transition = '1s';    
+          document.body.style.backgroundColor = '#999999';   
+          document.body.style.transition = '1s';   
+          document.body.style.color = "#EEEEEE";
+          // scrollText.classList.add('showScrollText');
       }
       if (el.id === "squirtle") {
-        document.body.style.backgroundColor = '#87DDFF';
+        document.body.style.backgroundColor = '#CCCCCC';
         document.body.style.transition = '1s';
+        document.body.style.color = "black";
       }
       if (el.id === "jigglypuff") {
-        document.body.style.backgroundColor = '#9467D3';
+        document.body.style.backgroundColor = '#999999';
         document.body.style.transition = '1s';
+        document.body.style.color = "#EEEEEE";
       }
       if (el.id === "rowlet") {
-        document.body.style.backgroundColor = 'green';
+        document.body.style.backgroundColor = '#CCCCCC';
         document.body.style.transition = '1s';
+        document.body.style.color = "black";
       }
       if (el.id === "munchlax") {
-        document.body.style.backgroundColor = 'white';
+        document.body.style.backgroundColor = '#999999';
         document.body.style.transition = '1s';
+        document.body.style.color = "#EEEEEE";
       }
       if (el.id === "grookey") {
-        document.body.style.backgroundColor = 'green';
+        document.body.style.backgroundColor = '#CCCCCC';
         document.body.style.transition = '1s';
+        document.body.style.color = "black";
       }
       if (el.id === "snom") {
-        document.body.style.backgroundColor = 'blue';
+        document.body.style.backgroundColor = '#999999';
         document.body.style.transition = '1s';
+        document.body.style.color = "#EEEEEE";
       }
       if (el.id === "wobbuffet") {
-        document.body.style.backgroundColor = 'purple';
+        document.body.style.backgroundColor = '#CCCCCC';
         document.body.style.transition = '1s';
+        document.body.style.color = "black";
       }
       if (el.id === "chansey") {
-        document.body.style.backgroundColor = 'grey';
+        document.body.style.backgroundColor = '#999999';
         document.body.style.transition = '1s';
+        document.body.style.color = "#EEEEEE";
       }
       if (el.id === "clobbopus") {
-        document.body.style.backgroundColor = 'orange';
+        document.body.style.backgroundColor = '#CCCCCC';
         document.body.style.transition = '1s';
+        document.body.style.color = "black";
       }
       if (el.id === "lapras") {
-        document.body.style.backgroundColor = 'blue';
+        document.body.style.backgroundColor = '#999999';
         document.body.style.transition = '1s';
+        document.body.style.color = "#EEEEEE";
       }
       if (el.id === "cubone") {
-        document.body.style.backgroundColor = 'orange';
+        document.body.style.backgroundColor = '#CCCCCC';
         document.body.style.transition = '1s';
+        document.body.style.color = "black";
       }
       if (el.id === "mightyena") {
-        document.body.style.backgroundColor = 'white';
+        document.body.style.backgroundColor = '#999999';
         document.body.style.transition = '1s';
+        document.body.style.color = "#EEEEEE";
       }
       if (el.id === "pikachu") {
-        document.body.style.backgroundColor = 'yellow';
+        document.body.style.backgroundColor = '#CCCCCC';
         document.body.style.transition = '1s';
+        document.body.style.color = "black";
       }
       if (el.id === "arcanine") {
-        document.body.style.backgroundColor = 'red';
+        document.body.style.backgroundColor = '#999999';
         document.body.style.transition = '1s';
+        document.body.style.color = "#EEEEEE";
       }
     }
     
     io.observe(document.querySelector('body'));
     io.observe(document.querySelector('#grid'));
     io.observe(document.querySelector('#collection'));
+
+    // individual card sections
     io.observe(document.querySelector('#snorlax'));
     io.observe(document.querySelector('#squirtle'));
     io.observe(document.querySelector('#jigglypuff'));
@@ -122,6 +146,8 @@ import { Value } from 'sass';
     io.observe(document.querySelector('#mightyena'));
     io.observe(document.querySelector('#pikachu'));
     io.observe(document.querySelector('#arcanine'));
+    io.observe(document.querySelector('#text-scroll'));
+
 
     gsap.set(document.querySelectorAll(".titles"), { opacity: 0 });
     gsap.set(document.querySelector(".grid"), { opacity: 0 });
@@ -141,6 +167,7 @@ import { Value } from 'sass';
     function changeBgColor() {
       document.body.style.backgroundColor = '#e0e0e0';
       document.body.style.transition = '0s';
+      document.body.style.color = "black";
     }
   }
 })();
